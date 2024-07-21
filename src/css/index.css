@@ -1,0 +1,7 @@
+body {
+    overflow: hidden;
+    margin-top: .5em;
+    background: radial-gradient(rgb(250, 234, 116), grey);
+    color: white;
+    text-shadow: 1px 1px 10px black;
+}

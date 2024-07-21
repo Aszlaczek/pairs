@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: space-around;
+}
+
+header>span {
+    width: clamp(1em, 45svw, 20em);
+    display: grid;
+    place-items: center;
+    font-size: 3svw;
+
+}

@@ -1,0 +1,109 @@
+:root {
+    ---first: #00ff59;
+    ---second: #00eeff;
+    ---bg-color-1: #38f684;
+    ---bg-color-2: #f9a722;
+    ---bg-shadow-1: #aeff01;
+    ---bg-shadow-2: #8a82ff;
+}
+
+.tableButton {
+    margin-top: 1em;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: clamp(.2em, 10svw, 1em);
+    height: 90svh;
+    padding-inline: .8em;
+}
+
+.item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes goIn {
+    0% {
+        box-shadow: inset 0px -10px 10px var(---bg-shadow-1);
+        background: var(---bg-color-1);
+        scale: 1;
+    }
+
+    100% {
+        box-shadow: inset 0px 10px 10px var(---bg-shadow-2);
+        background: var(---bg-color-2);
+        scale: 1.05;
+        color: white;
+    }
+}
+
+@keyframes goOut {
+    0% {
+        box-shadow: inset 0px 10px 10px var(---bg-shadow-2);
+        background: var(---bg-color-2);
+        scale: 1.05;
+    }
+
+    100% {
+        box-shadow: inset 0px -10px 10px var(---bg-shadow-1);
+        background: var(---bg-color-1);
+        scale: 1;
+    }
+}
+
+button {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 8svw;
+    animation: goOut .2s forwards;
+    margin: auto;
+}
+
+.check {
+    box-shadow: 0px 0px 50px rgb(0, 148, 247);
+    border-radius: 20px;
+}
+
+button:hover {
+    cursor: pointer;
+    animation: goIn .2s forwards;
+}
+
+button:disabled {
+    cursor: default;
+    animation: none;
+}
+
+span {
+    place-self: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    text-align: center;
+    font-size: 2svw;
+}
+
+span>button {
+    width: 20svw;
+    aspect-ratio: 3/1;
+    font-size: 2.2svw;
+    padding-inline: 1rem;
+    background-color: rgba(229, 255, 0, 0.47);
+    animation: none;
+    transition: all .2s;
+    color: inherit;
+    text-shadow: inherit;
+    border: none;
+    box-shadow: 0px 0px 10px black;
+}
+
+span>button:hover {
+    animation: none;
+    background-color: lightgreen;
+    transition: all .2s;
+}
