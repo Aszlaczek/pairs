@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./css/App.css";
 import Buttons from "./components/Buttons";
 import List from "./components/List";
 
 function App() {
-  const a = ["a", "b", "c", "d", "e", "f"];
   const [again, setAgain] = useState<number>(1);
   const [count, setCount] = useState(0);
   const [change, setChange] = useState(false);
-  g;
+
+  let a = ["a", "b", "c", "d", "e", "f"];
+  const [changeValue, setChangeValue] = useState(a);
+
   const shuffle = (list: string[]) => {
     const value = list.concat(list);
     let current = value.length;
@@ -23,22 +25,37 @@ function App() {
 
   return (
     <>
-      <header>
-        <span>You're counter: {count}</span>
-        <br />
-        {again > 1 ? <span>It's you're {again} try</span> : ""}
-      </header>
+      <div id="app">
+        <header>
+          <span>You're counter: {count}</span>
+          <br />
+          {again > 1 ? <span>It's you're {again} try</span> : ""}
+        </header>
 
-      <main>
-        <Buttons
-          list={shuffle(a)}
-          again={again}
-          action={setAgain}
-          countF={setCount}
-          count={count}
-        />
-        <List list={a}></List>
-      </main>
+        <main>
+          <Buttons
+            list={shuffle(changeValue)}
+            again={again}
+            action={setAgain}
+            countF={setCount}
+            count={count}
+            values={changeValue}
+          />
+          <button className="openPopup" onClick={() => setChange(!change)}>
+            Change attribute?
+          </button>
+          {change ? (
+            <List
+              list={a}
+              action={setChange}
+              state={change}
+              values={setChangeValue}
+            />
+          ) : (
+            ""
+          )}
+        </main>
+      </div>
     </>
   );
 }

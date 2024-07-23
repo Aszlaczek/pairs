@@ -1,12 +1,81 @@
-header {
-    display: flex;
-    justify-content: space-around;
+#app {
+  display: grid;
+  grid-template-rows: 5% 90% 5%;
 }
 
-header>span {
-    width: clamp(1em, 45svw, 20em);
-    display: grid;
-    place-items: center;
-    font-size: 3svw;
+header {
+  display: flex;
+  justify-content: space-around;
+}
 
+header > span {
+  width: clamp(1em, 45svw, 20em);
+  display: grid;
+  place-items: center;
+  font-size: 3svw;
+}
+
+main {
+  display: grid;
+  position: relative;
+}
+
+.openPopup {
+  width: fit-content;
+  height: 5svw;
+  font-size: clamp(1rem, 5svw, 2em);
+  height: clamp(1.5em, 3svw, 4em);
+}
+
+#form {
+  padding: 1em;
+  place-self: center;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  gap: 1em;
+  width: 90%;
+  height: 50%;
+  z-index: 100;
+  top: 25%;
+  background: transparent;
+}
+
+#form::after {
+  position: absolute;
+  content: "";
+  width: 108%;
+  height: 185%;
+  background: rgba(255, 255, 255, 0.551);
+  filter: blur(10px);
+  z-index: -50;
+}
+
+#form > * > label,
+#form > * > * > input {
+  font-size: clamp(0.8em, 5svw, 1.5em);
+  text-shadow: 0px 0px 0.2px white;
+  color: black;
+}
+
+#form > * > div {
+  box-shadow: 0px 0px 10px var(---bg-color-1);
+}
+
+#form > * > div:focus {
+  box-shadow: none;
+}
+
+#done,
+#cancle {
+  width: 75%;
+  height: clamp(50%, 2rem, 75%);
+  font-size: clamp(1em, 5svw, 2em);
+}
+#done {
+  grid-column: 3;
 }

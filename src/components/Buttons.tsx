@@ -13,10 +13,12 @@ const Buttons = (props: {
   action: Function;
   countF: Function;
   count: number;
+  values: string[];
 }) => {
   const [active, setActive] = useState(false);
   const [one, setOne] = useState<Card | null>(null);
   const [items, setItems] = useState<Card[]>();
+
   useEffect(() => {
     const listOfValue: Card[] = [];
     props.list.map((e, i) => {
@@ -29,7 +31,7 @@ const Buttons = (props: {
       listOfValue.push(card);
     });
     setItems(listOfValue);
-  }, [props.again]);
+  }, [props.again, props.values]);
 
   const goodChoise = (second: Card) => {
     let listValue = [...items!];
