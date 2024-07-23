@@ -11,7 +11,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: clamp(0.2em, 10svw, 1em);
-  height: 90svh;
+  height: 80svh;
   padding-inline: 0.8em;
 }
 
@@ -62,7 +62,7 @@ button {
 }
 
 .check {
-  box-shadow: 0px 0px 50px rgb(0, 148, 247);
+  box-shadow: 0px 0px 50px var(---bg-color-1);
   border-radius: 20px;
 }
 
@@ -91,17 +91,9 @@ span > button {
   aspect-ratio: 3/1;
   font-size: 2.2svw;
   padding-inline: 1rem;
-  background-color: rgba(229, 255, 0, 0.47);
-  animation: none;
   transition: all 0.2s;
   color: inherit;
   text-shadow: inherit;
   border: none;
   box-shadow: 0px 0px 10px black;
-}
-
-span > button:hover {
-  animation: none;
-  background-color: lightgreen;
-  transition: all 0.2s;
 }

@@ -1,20 +1,24 @@
 import { useState } from "react";
 import "./css/App.css";
 import Buttons from "./components/Buttons";
+import List from "./components/List";
 
 function App() {
-  const a = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"];
+  const a = ["a", "b", "c", "d", "e", "f"];
   const [again, setAgain] = useState<number>(1);
   const [count, setCount] = useState(0);
+  const [change, setChange] = useState(false);
+  g;
   const shuffle = (list: string[]) => {
-    let current = list.length;
+    const value = list.concat(list);
+    let current = value.length;
 
     while (current != 0) {
       let random = Math.floor(Math.random() * current);
       current--;
-      [list[current], list[random]] = [list[random], list[current]];
+      [value[current], value[random]] = [value[random], value[current]];
     }
-    return list;
+    return value;
   };
 
   return (
@@ -33,6 +37,7 @@ function App() {
           countF={setCount}
           count={count}
         />
+        <List list={a}></List>
       </main>
     </>
   );
