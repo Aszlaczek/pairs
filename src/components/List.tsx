@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import React, { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 
 const List = (props: {
   list: string[];
@@ -7,12 +7,7 @@ const List = (props: {
   state: boolean;
   values: Function;
 }) => {
-  const [listOfValue, setListOfValue] = useState<string[]>(props.list);
-
-  const [values, setValues] = useState<string[] | "">("");
-  const [value, setValue] = useState<string>("");
-
-  let pom = [...listOfValue];
+  let pom = props.list;
 
   const makeChange = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,7 +23,7 @@ const List = (props: {
         label="First"
         variant="outlined"
         className="label"
-        value={value[0]}
+        value={pom[0]}
         onChange={(e) => (pom[0] = e.target.value)}
       />
       <TextField
@@ -36,7 +31,7 @@ const List = (props: {
         label="Second"
         variant="outlined"
         className="label"
-        value={values[1]}
+        value={pom[1]}
         onChange={(e) => (pom[1] = e.target.value)}
       />
       <TextField
@@ -44,7 +39,7 @@ const List = (props: {
         label="Third"
         variant="outlined"
         className="label"
-        value={values[2]}
+        value={pom[2]}
         onChange={(e) => (pom[2] = e.target.value)}
       />
       <TextField
@@ -52,7 +47,7 @@ const List = (props: {
         label="Fourth"
         variant="outlined"
         className="label"
-        value={values[3]}
+        value={pom[3]}
         onChange={(e) => (pom[3] = e.target.value)}
       />
       <TextField
@@ -60,7 +55,7 @@ const List = (props: {
         label="Five"
         variant="outlined"
         className="label"
-        value={values[4]}
+        value={pom[4]}
         onChange={(e) => (pom[4] = e.target.value)}
       />
       <TextField
@@ -68,7 +63,7 @@ const List = (props: {
         label="Six"
         variant="outlined"
         className="label"
-        value={values[5]}
+        value={pom[5]}
         onChange={(e) => (pom[5] = e.target.value)}
       />
       <button
