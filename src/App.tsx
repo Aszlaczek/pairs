@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./css/App.css";
 import Buttons from "./components/Buttons";
 import List from "./components/List";
