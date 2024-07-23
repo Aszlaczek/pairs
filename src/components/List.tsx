@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import React, { EventHandler, FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 
 const List = (props: {
   list: string[];
