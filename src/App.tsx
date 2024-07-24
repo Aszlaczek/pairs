@@ -7,7 +7,7 @@ function App() {
   const [again, setAgain] = useState<number>(1);
   const [count, setCount] = useState(0);
   const [change, setChange] = useState(false);
-  const [info, setInfo] = useState(true);
+  const [info, setInfo] = useState(false);
   let a = ["a", "b", "c", "d", "e", "f"];
   const [changeValue, setChangeValue] = useState(a);
 
