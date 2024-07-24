@@ -1,7 +1,4 @@
-:root {
-  ---first: #8fdbfe;
-  ---second: #07237f;
-}
+@import "./variable.css";
 body {
   overflow: hidden;
   margin-top: 0.5em;

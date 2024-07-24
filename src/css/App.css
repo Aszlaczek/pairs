@@ -25,6 +25,9 @@ main {
   height: 5svw;
   font-size: clamp(1rem, 5svw, 2em);
   height: clamp(1.5em, 3svw, 4em);
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 #form {
@@ -78,4 +81,28 @@ main {
 }
 #done {
   grid-column: 3;
+}
+
+#info {
+  place-self: start center;
+  position: absolute;
+  top: -20px;
+  width: 150%;
+  height: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 50%;
+}
+#info::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(---bg-color-2);
+  filter: blur(2px);
+  border-radius: 10px 0;
+  z-index: -1;
 }

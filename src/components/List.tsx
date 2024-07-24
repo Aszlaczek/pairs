@@ -1,71 +1,51 @@
 import { TextField } from "@mui/material";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 const List = (props: {
   list: string[];
   action: Function;
   state: boolean;
   values: Function;
+  count: Function;
 }) => {
-  let pom = props.list;
+  const [values, setValue] = useState<string[]>(props.list);
 
   const makeChange = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.values(pom);
-    alert("poszło");
+    props.values(values);
+    props.count(0);
+    alert("You have changed the variable successfully");
     props.action(!props.state);
+  };
+
+  const updateValue = (e: string, id: number) => {
+    let list = [...values];
+    list[id] = e;
+    setValue(list);
+  };
+
+  const createChange = () => {
+    let list = [...values];
+    return list.map((e, id) => {
+      return (
+        <TextField
+          id="outlined-basic"
+          key={id}
+          label="First"
+          variant="outlined"
+          className="label"
+          value={e}
+          onChange={(e) => {
+            updateValue(e.target.value, id);
+          }}
+        />
+      );
+    });
   };
 
   return (
     <form id="form" onSubmit={makeChange}>
-      <TextField
-        id="outlined-basic"
-        label="First"
-        variant="outlined"
-        className="label"
-        value={pom[0]}
-        onChange={(e) => (pom[0] = e.target.value)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Second"
-        variant="outlined"
-        className="label"
-        value={pom[1]}
-        onChange={(e) => (pom[1] = e.target.value)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Third"
-        variant="outlined"
-        className="label"
-        value={pom[2]}
-        onChange={(e) => (pom[2] = e.target.value)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Fourth"
-        variant="outlined"
-        className="label"
-        value={pom[3]}
-        onChange={(e) => (pom[3] = e.target.value)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Five"
-        variant="outlined"
-        className="label"
-        value={pom[4]}
-        onChange={(e) => (pom[4] = e.target.value)}
-      />
-      <TextField
-        id="outlined-basic"
-        label="Six"
-        variant="outlined"
-        className="label"
-        value={pom[5]}
-        onChange={(e) => (pom[5] = e.target.value)}
-      />
+      {createChange()}
       <button
         type="submit"
         id="cancle"
