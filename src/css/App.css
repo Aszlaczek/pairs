@@ -37,7 +37,7 @@ main {
   grid-row-end: 4;
   position: absolute;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   gap: 1em;
@@ -53,7 +53,7 @@ main {
   content: "";
   width: 108%;
   height: 185%;
-  background: rgba(255, 255, 255, 0.551);
+  background: color-mix(in srgb, var(---first) 60%, var(---second) 20%);
   filter: blur(10px);
   z-index: -50;
 }
@@ -71,6 +71,15 @@ main {
 
 #form > * > div:focus {
   box-shadow: none;
+}
+
+#form > h2 {
+  place-self: start center;
+  position: absolute;
+  top: -5em;
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 #done,

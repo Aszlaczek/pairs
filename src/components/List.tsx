@@ -45,6 +45,7 @@ const List = (props: {
 
   return (
     <form id="form" onSubmit={makeChange}>
+      <h2>Change the variable bellow</h2>
       {createChange()}
       <button
         type="submit"
