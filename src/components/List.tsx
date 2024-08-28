@@ -52,7 +52,7 @@ const List = (props: {
         id="cancle"
         onClick={() => props.action(!props.state)}
       >
-        Cancle
+        Cancel
       </button>
       <button type="submit" id="done" onSubmit={() => makeChange}>
         Done
