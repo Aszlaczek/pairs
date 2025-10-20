@@ -1,78 +1,34 @@
-import { useState } from "react";
-import "./css/App.css";
-import Buttons from "./components/Buttons";
-import List from "./components/List";
+import ListOfCards from "./Components/ListOfCards"
+import { Container, Grid, Typography } from '@mui/material'
 
-function App() {
-  const [again, setAgain] = useState<number>(1);
-  const [count, setCount] = useState(0);
-  const [change, setChange] = useState(false);
-  const [info, setInfo] = useState(false);
-  let a = ["a", "b", "c", "d", "e", "f"];
-  const [changeValue, setChangeValue] = useState(a);
+const Data = [
+  { name: 'jeden', value: 1 },
+  { name: 'dwa', value: 2 },
+  { name: 'trzy', value: 3 },
+  { name: 'cztery', value: 4 },
+  { name: 'cztery', value: 5 },
+]
 
-  const shuffle = (list: string[]) => {
-    const value = list.concat(list);
-    let current = value.length;
-
-    while (current != 0) {
-      let random = Math.floor(Math.random() * current);
-      current--;
-      [value[current], value[random]] = [value[random], value[current]];
-    }
-    return value;
-  };
-
-  return (
-    <>
-      <div id="app">
-        <header>
-          <span>You're counter: {count}</span>
-          <br />
-          {again > 1 ? <span>It's you're {again} try</span> : ""}
-        </header>
-
-        <main>
-          <Buttons
-            list={shuffle(changeValue)}
-            again={again}
-            action={setAgain}
-            countF={setCount}
-            count={count}
-            values={changeValue}
-          />
-
-          <button
-            className="openPopup"
-            onClick={() => setChange(!change)}
-            onMouseEnter={() => setInfo(true)}
-            onMouseLeave={() => setInfo(false)}
-          >
-            {info ? (
-              <span id="info">
-                <h3>If you want make a change</h3>
-              </span>
-            ) : (
-              ""
-            )}
-            Change attribute?
-          </button>
-
-          {change ? (
-            <List
-              list={a}
-              action={setChange}
-              state={change}
-              values={setChangeValue}
-              count={setCount}
-            />
-          ) : (
-            ""
-          )}
-        </main>
-      </div>
-    </>
-  );
+export type Data = {
+  name: string,
+  value: number
 }
 
-export default App;
+const App = () => {
+
+  return (
+    <Grid sx={{ gridRow: 2, background: 'blue' }}>
+      <Grid item sm={12}>
+        <Typography variant="h4" align="center">
+          Play and have fun
+        </Typography>
+      </Grid>
+      <Grid item lg={12}>
+        <ListOfCards data={Data} />
+      </Grid>
+    </Grid>
+    // <MemoryGame />
+  )
+}
+
+export default App

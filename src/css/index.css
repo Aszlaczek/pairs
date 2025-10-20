@@ -1,8 +1,0 @@
-@import "./variable.css";
-body {
-  overflow: hidden;
-  margin-top: 0.5em;
-  background: radial-gradient(var(---first), var(---second));
-  color: white;
-  text-shadow: 1px 1px 10px black;
-}
